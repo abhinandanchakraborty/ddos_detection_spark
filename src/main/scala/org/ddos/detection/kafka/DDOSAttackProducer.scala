@@ -7,12 +7,13 @@ import org.apache.kafka.common.serialization.StringSerializer;
 
 import scala.io.Source
 import org.apache.kafka.clients.producer._
+import org.ddos.detection.util._
 
 object DDOSAttackProducer extends App {
 
   val brokers = "velomobile-01.srvs.cloudkafka.com:9094,velomobile-02.srvs.cloudkafka.com:9094,velomobile-03.srvs.cloudkafka.com:9094";
   val username = "olzns47g";
-  val password = "HA3t1e33HI_V8vwWOnvhLkpG__hZggSh";
+  val password = Encryption.decrypt("/5NaiTzJFsGv6xxF4aBPSDHviD2Utws+hJYN2MzJ3AfaDQZBwpNm9kWsSlVdFxJ5");
   val topic = username + "-default";
 
   val jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";

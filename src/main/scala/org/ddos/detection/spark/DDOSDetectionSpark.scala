@@ -16,6 +16,8 @@ import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
+import org.ddos.detection.util._
+
 object DDOSDetectionSpark extends App {
   
   System.setProperty("hadoop.home.dir", "C:/Users/abhin/scalaworkspace/ddos_detection_spark/");
@@ -26,7 +28,7 @@ object DDOSDetectionSpark extends App {
 
   val brokers = "velomobile-01.srvs.cloudkafka.com:9094,velomobile-02.srvs.cloudkafka.com:9094,velomobile-03.srvs.cloudkafka.com:9094";
   val username = "olzns47g"
-  val password = "HA3t1e33HI_V8vwWOnvhLkpG__hZggSh";
+  val password = Encryption.decrypt("/5NaiTzJFsGv6xxF4aBPSDHviD2Utws+hJYN2MzJ3AfaDQZBwpNm9kWsSlVdFxJ5");
   val topics = "olzns47g-default"
 
   val jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
